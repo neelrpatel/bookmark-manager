@@ -1,0 +1,44 @@
+<div class="container card-container">
+  <div>
+    <h1 class="text-manilla float-left"><i class="fas fa-folder-open fa-sm"></i></h1>
+    <form action="/folders/<%= folder.id  %>" method="POST" class="float-right">
+      <input type="hidden" name="_method" value="DELETE">
+      <input type="hidden" name="isFolderOpen" value="1">
+      <button type="submit" class="btn btn-danger float-right" data-toggle="tooltip" title="Delete folder">
+        <i class="fas fa-trash-alt fa-lg"></i>
+      </button>
+    </form>
+    <a href="/folders/<%= folder.id %>/edit" class="btn btn-warning text-white float-right mr-2"
+      data-toggle="tooltip" title="Edit folder">
+      <i class="fas fa-edit fa-lg"></i>
+    </a>
+  </div>
+  <br style="clear:both;" />
+
+  <h2>
+    <% if (folder.isPinned) { %>
+      <i class="fas fa-thumbtack fa-xs text-gold"></i> &nbsp;
+    <% } %>
+    <%= folder.name %>
+  </h2>
+  <hr>
+
+  <% if (bookmarks.length > 0 || searchOptions.expression || searchOptions.updatedAfter || searchOptions.updatedBefore) { %>
+    <% let action = `/folders/${folder.id}` %>
+    <%- include('../partials/_search_bar', { action: action, expressionPlaceholder: 'Search bookmarks...' }) %>
+    <br>
+  <% } %>
+  <% if (bookmarks.length > 0) { %>
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4">
+      <% bookmarks.forEach(bookmark => { %>
+        <%- include('../partials/_bookmark_card', { bookmark: bookmark }) %>
+      <% }) %>
+    </div>
+  <% } else if (searchOptions.expression) { %>
+    <h4>No bookmarks for &quot;<%= searchOptions.expression %>&quot; in the specified date range could be found.</h4>
+  <% } else if (searchOptions.updatedAfter || searchOptions.updatedBefore) { %>
+    <h4>No bookmarks in the specified date range could be found.</h4>
+  <% } else { %>
+    <h4>You haven't added any bookmarks to this folder yet!</h4>
+  <% } %>
+</div>

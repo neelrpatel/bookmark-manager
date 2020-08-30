@@ -1,0 +1,9 @@
+.error-container {
+  margin-top: -150px;
+}
+
+@media screen and (max-height: 767.98px) {
+  .error-container {
+    margin-top: initial;
+  }
+}

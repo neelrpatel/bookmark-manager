@@ -1,0 +1,14 @@
+<form action="/folders/<%= folder.id %>" method="POST" class="container add-edit-form-container needs-validation" novalidate>
+  <input type="hidden" name="_method" value="PUT">
+  <h4 class="text-center">Edit Folder</h4>
+  <hr>
+  <%- include('../errors/_alert') %>
+  <%- include('_form_fields') %>
+  <br>
+  <div class="form-group row">
+    <div class="col-sm-5">
+      <button type="submit" class="btn btn-primary mr-1">Save</button>
+      <a href="/" class="btn btn-danger">Cancel</a>
+    </div>
+  </div>
+</form>

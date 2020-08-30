@@ -1,0 +1,17 @@
+<% if (begin < recentlyUpdatedItems.length) { %>
+  <% let i = begin  %>
+  <% const end = begin + 4 < recentlyUpdatedItems.length ? begin + 4 : recentlyUpdatedItems.length %>
+  <div class="carousel-item <%= i === 0 ? 'active' : '' %>">
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-2 row-cols-lg-4">
+      <% while (i < end) { %>
+        <% let item = recentlyUpdatedItems[i] %>
+        <% if (item.url) { %>
+          <%- include('_bookmark_card', { bookmark: item }) %>
+        <% } else { %>
+          <%- include('_folder_card', { folder: item }) %>
+        <% } %>
+        <% ++i %>
+      <% } %>
+    </div>
+  </div>
+<% } %>

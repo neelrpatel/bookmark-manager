@@ -1,0 +1,23 @@
+<div class="container card-container">
+  <h2><i class="fas fa-search fa-xs text-info"></i> &nbsp; Search</h2>
+  <hr>
+  <%- include('./partials/_search_bar', { action: '/search', expressionPlaceholder: 'Search bookmarks and folders...' }) %>
+  <br>
+  <% if (searchResults.length > 0) { %>
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4">
+      <% searchResults.forEach(searchResult => { %>
+        <% if (searchResult.url) { %>
+          <%- include('./partials/_bookmark_card', { bookmark: searchResult }) %>
+        <% } else { %>
+          <%- include('./partials/_folder_card', { folder: searchResult }) %>
+        <% } %>
+      <% }) %>
+    </div>
+  <% } else if (searchOptions.expression) { %>
+    <h4>No bookmarks for &quot;<%= searchOptions.expression %>&quot; in the specified date range could be found.</h4>
+  <% } else if (searchOptions.updatedAfter || searchOptions.updatedBefore) { %>
+    <h4>No bookmarks in the specified date range could be found.</h4>
+  <% } else if ('expression' in searchOptions || 'updatedAfter' in searchOptions || 'updatedBefore' in searchOptions) { %>
+    <h4>You haven't created any bookmarks or folders yet!</h4>
+  <% } %>
+</div>

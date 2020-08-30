@@ -1,0 +1,14 @@
+.add-edit-form-container {
+  width: 700px;
+  margin: 60px auto;
+  padding: 20px;
+  background: white;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+}
+
+@media screen and (max-width: 575.98px) {
+  .add-edit-form-container {
+    width: auto;
+    margin: 30px 60px;
+  }
+}

@@ -1,0 +1,16 @@
+.card-container {
+  margin: 40px auto;
+}
+
+.card-container .btn-danger {
+  width: 100%;
+}
+
+.card-header .float-left {
+  width: 0px;
+}
+
+.card-footer .card-btn {
+  width: 30%;
+  color: white;
+}

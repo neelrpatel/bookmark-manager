@@ -1,0 +1,28 @@
+<div class="form-group row">
+  <label for="name" class="col-sm-2 col-form-label">Name</label>
+  <div class="col-sm-10">
+    <input type="text" class="form-control" id="name" name="name" value="<%= folder.name %>" minlength="1"
+      maxlength="100" required>
+    <div class="invalid-feedback">
+      Please provide a folder name.
+    </div>
+  </div>
+</div>
+
+<fieldset class="form-group">
+  <div class="row">
+    <legend class="col-form-label col-sm-2 pt-0">Pin</legend>
+    <div class="col-sm-10">
+      <div class="form-check form-check-inline">
+        <input type="radio" class="form-check-input" id="pin" name="isPinned" value="1"
+          <%= folder.isPinned ? 'checked' : '' %>>
+        <label for="pin" class="form-check-label">Yes</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input type="radio" class="form-check-input" id="doNotPin" name="isPinned" value=""
+          <%= folder.isPinned ? '' : 'checked' %>>
+        <label for="doNotPin" class="form-check-label">No</label>
+      </div>
+    </div>
+  </div>
+</fieldset>

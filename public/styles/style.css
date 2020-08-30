@@ -1,0 +1,83 @@
+@import 'add-edit-forms.css';
+@import 'cards.css';
+@import 'carousels.css';
+@import 'errors.css';
+
+html {
+  height: 100%;
+}
+
+body {
+  position: relative;
+  min-height: 100%;
+  width: 100%;
+  margin: 0px;
+  padding: 0px;
+  background-color: rgb(217, 228, 245);
+  background-image: linear-gradient(
+    315deg,
+    rgb(217, 228, 245) 0%,
+    rgb(245, 227, 230) 74%
+  );
+  background-attachment: fixed;
+  overflow-y: scroll;
+}
+
+/* Navbar */
+
+.navbar-brand {
+  font-size: x-large;
+}
+
+.navbar-collapse {
+  font-size: medium;
+}
+
+.navbar-right .dropdown .dropdown-toggle {
+  color: white;
+}
+
+.profile-picture-wrapper {
+  padding-right: 6px;
+}
+
+/* Content */
+
+.content-wrap {
+  padding-bottom: 60px; /* Footer height */
+}
+
+/* Footer */
+
+.footer {
+  font-size: large;
+  position: absolute;
+  bottom: 0px;
+  width: 100%;
+  height: 60px;
+  line-height: 60px;
+}
+
+/* Fonts and Text */
+
+.navbar-brand,
+.footer {
+  font-family: 'Work Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+.navbar-collapse,
+.content-wrap {
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+.text-gold {
+  color: goldenrod;
+}
+
+.text-manilla {
+  color: rgb(241, 213, 146);
+}
+
+.text-maroon {
+  color: maroon;
+}

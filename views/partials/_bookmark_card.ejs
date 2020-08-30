@@ -1,0 +1,45 @@
+<div class="col mb-4">
+  <div class="card h-100 text-center">
+    <div class="card-header">
+      <h5>
+        <% if (bookmark.isPinned) { %>
+          <i class="fas fa-thumbtack fa-xs text-gold float-left"></i>
+        <% } %>
+          <i class="fas fa-bookmark fa-lg text-maroon"></i>
+      </h5>
+    </div>
+
+    <div class="card-body d-flex flex-column">
+      <div class="text-center">
+        <img class="mb-1" width="24" height="24"
+          src="https://www.google.com/s2/favicons?sz=24&domain_url=<%= bookmark.url %>"
+          alt="<%= bookmark.name %> favicon">
+        <!-- Fallback 1: 
+        <img width="16" height="16" src="https://api.statvoo.com/favicon/?url=<%=/* bookmark.url */%>"
+          alt="<%=/* bookmark.name */%> favicon"> -->
+        <!-- Fallback 2: 
+        <img width="16" height="16" src="https:////f3.allesedv.com/16/<%=/* bookmark.url */%>"
+          alt="<%=/* bookmark.name */%> favicon"> -->
+      </div>
+      <h4 class="card-title"><%= bookmark.name %></h4>
+      <p class="card-text mt-auto"><small class="text-muted">Updated <%= formatDate(bookmark.updatedAt) %></small></p>
+    </div>
+    
+    <div class="card-footer">
+      <a href="<%= bookmark.url  %>" target="_blank" class="card-btn btn btn-primary float-left"
+        data-toggle="tooltip" title="Go to bookmarked page">
+        <i class="fas fa-external-link-alt fa-lg"></i>
+      </a>
+      <a href="/bookmarks/<%= bookmark.id %>/edit" class="card-btn btn btn-warning" data-toggle="tooltip"
+        title="Edit bookmark">
+        <i class="fas fa-edit fa-lg"></i>
+      </a>
+      <form action="/bookmarks/<%= bookmark.id  %>" method="POST" class="card-btn float-right">
+        <input type="hidden" name="_method" value="DELETE">
+        <button type="submit" class="btn btn-danger" data-toggle="tooltip" title="Delete bookmark">
+          <i class="fas fa-trash-alt fa-lg"></i>
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
